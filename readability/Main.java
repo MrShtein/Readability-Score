@@ -4,13 +4,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String text = scanner.nextLine();
+        TextGrabber textGrabber = new TextGrabber();
+        TextAnalyzer textAnalyzer = new TextAnalyzer(textGrabber.getText());
+        System.out.println(textAnalyzer.analyzeText());
 
-        if (text.length() <= 100) {
-            System.out.println("EASY");
-        } else {
-            System.out.println("HARD");
-        }
     }
 }
