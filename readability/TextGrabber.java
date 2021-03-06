@@ -1,17 +1,24 @@
 package readability;
 
-import java.util.Scanner;
+import java.io.*;
 
 public class TextGrabber {
 
-    Scanner scanner;
+    private final String fileName;
 
-    public TextGrabber() {
-        scanner = new Scanner(System.in);
+    public TextGrabber(String fileName) {
+        this.fileName = fileName;
     }
 
-    public String getText() {
-        return scanner.nextLine();
+    public String getText() throws FileNotFoundException, IOException {
+        try(BufferedInputStream buf = new BufferedInputStream(new FileInputStream(fileName))) {
+            StringBuilder sb = new StringBuilder();
+            return new String(buf.readAllBytes());
+        } catch (FileNotFoundException e) {
+            throw new FileNotFoundException("File not found");
+        } catch (IOException e) {
+            throw new IOException("Data error");
+        }
     }
 
 }
