@@ -1,6 +1,7 @@
 package readability;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class TextGrabber {
 
@@ -19,6 +20,11 @@ public class TextGrabber {
         } catch (IOException e) {
             throw new IOException("Data error");
         }
+    }
+
+    public String getAlgorithmName() {
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
 }

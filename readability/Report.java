@@ -2,43 +2,62 @@ package readability;
 
 public class Report {
 
-    private final int words;
-    private final int sentences;
-    private final int characters;
-    private final double score;
-    private final Age grade;
+    private final double words;
+    private final double sentences;
+    private final double characters;
+    private final double syllables;
+    private final double polysyllables;
+    private double score;
+    private int age;
     private final String text;
 
-    public Report(int words, int sentences, int characters, double score, Age grade, String text) {
+    public Report(double words, double sentences, double characters, String text, double syllables, double polysyllables) {
         this.words = words;
         this.sentences = sentences;
         this.characters = characters;
-        this.score = score;
-        this.grade = grade;
         this.text = text;
+        this.syllables = syllables;
+        this.polysyllables = polysyllables;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
     }
 
     public String getText() {
         return text;
     }
 
-    public int getWords() {
+    public double getWords() {
         return words;
     }
 
-    public int getSentences() {
+    public double getSentences() {
         return sentences;
     }
 
-    public int getCharacters() {
+    public double getCharacters() {
         return characters;
     }
 
-    public String getScore() {
-        return String.format("%.2f", score);
+    public double getSyllables() {
+        return syllables;
     }
 
-    public Age getAge() {
-        return grade;
+    public double getPolysyllables() {
+        return polysyllables;
     }
+
 }

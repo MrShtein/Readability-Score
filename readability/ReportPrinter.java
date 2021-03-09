@@ -8,18 +8,18 @@ public class ReportPrinter {
         this.report = report;
     }
 
-    public void print() {
+    public void printData() {
         System.out.printf("The text is:\n%s", report.getText());
-        System.out.printf("\nWords: %d\n", report.getWords());
-        System.out.printf("Sentences: %d\n", report.getSentences());
-        System.out.printf("Characters: %d\n", report.getCharacters());
-        System.out.printf("The score is: %s\n", report.getScore());
-        if (report.getAge().getMIN_AGE() != 24) {
-            System.out.printf("This text should be understood by %d-%d-year-olds.",
-                    report.getAge().getMIN_AGE(), report.getAge().getMAX_AGE());
-        } else {
-            System.out.print("This text should be understood by 24+-year-olds.");
-        }
+        System.out.printf("\nWords: %d\n", (int) report.getWords());
+        System.out.printf("Sentences: %d\n", (int) report.getSentences());
+        System.out.printf("Characters: %d\n", (int) report.getCharacters());
+        System.out.printf("Syllables: %d\n", (int) report.getSyllables());
+        System.out.printf("Polysyllables: %d\n", (int) report.getPolysyllables());
+    }
+
+    public void printResult(Report report, String phrase) {
+        System.out.printf("%s %.2f (about %d-year-olds).\n", phrase, report.getScore(), report.getAge());
+
     }
 
 
